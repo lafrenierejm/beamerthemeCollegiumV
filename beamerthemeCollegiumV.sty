@@ -12,6 +12,15 @@
 
 \usefonttheme[onlymath]{serif}
 
+% hyperref
+\DeclareUrlCommand\urlanglebracket{%
+  \def\UrlLeft{<}%
+  \def\UrlRight{>}%
+}
+%% macros
+\newcommand{\email}[1]{\href{mailto:#1}{\url{#1}}}
+\newcommand{\emailcontact}[1]{\href{mailto:#1}{\urlanglebracket{#1}}}
+
 \newcommand{\major}[1]{\def\@major{#1}}
 
 \setbeamertemplate{headline}{%
