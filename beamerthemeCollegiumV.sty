@@ -1,11 +1,22 @@
 \RequirePackage{tikz}
 \RequirePackage[%
   orientation=landscape,%
-  paperheight=24in,%
-  paperwidth=36in,%
 ]{beamerposter}
 
 \newcommand{\footimage}[1]{\def\footim@ge{#1}}
+% dimensions
+\setlength{\paperwidth}{36in}
+\setlength{\paperheight}{24in}
+\newlength{\sepwidth}
+\newlength{\onecolwidth}
+\newlength{\twocolwidth}
+\newlength{\threecolwidth}
+\setlength{\sepwidth}{0.025\paperwidth}
+\setlength{\onecolwidth}{0.21875\paperwidth}
+\setlength{\twocolwidth}{0.4625\paperwidth}
+\setlength{\threecolwidth}{0.70625\paperwidth}
+\setlength{\topmargin}{-1in}
+
 \usefonttheme[onlymath]{serif}
 \setbeamertemplate{headline}{  
   \begin{beamercolorbox}[wd=\textwidth]{headline}
