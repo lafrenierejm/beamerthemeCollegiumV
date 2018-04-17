@@ -31,97 +31,80 @@
 \major{Your Major}
 
 \begin{document}
-\begin{frame}[fragile]
-\begin{columns}[T]
 
-%%%% First Column
-\begin{column}{.33\textwidth}
+% \setlength{\textwidth}{35in}
+\begin{frame}[c,fragile]
+  \begin{block}{Full width}
+    This block is the full \texttt{textwidth} because it is not inside a column (in fact, it's not in a \texttt{columns} environment at all).
+    The following lengths are displayed using the \texttt{printlen} package.
+    You can probably remove that package for your poster.
+    \begin{itemize}
+    \item
+      Paperwidth is \uselengthunit{in}\printlength{\paperwidth}.
+    \item
+      Paperheight is \uselengthunit{in}\printlength{\paperheight}.
+    \item
+      Textwidth is \uselengthunit{in}\printlength{\textwidth}.
+    \item
+      Colwidth is \uselengthunit{in}\printlength{\colwidth}.
+    \end{itemize}
+  \end{block}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{\colwidth}
+      \begin{block}{Useful Commands}
+        \begin{enumerate}
+        \item
+          You can insert the contents of \path{\author} using \path{\insertauthor}: \insertauthor{}.
+        \item\label{email}
+          Email address can be formatted as \texttt{mailto} URLs with the \path{\email} macro.
+          \path{\email{email@address}} becomes a clickable \email{email@address}.
+        \item\label{emailcontact}
+          To wrap an email address in angle braces, use \path{\emailcontact}.
+          \path{\emailcontact{email@address}} becomes \emailcontact{email@address}.
+        \item
+          The font style of items \ref{email} and \ref{emailcontact} is provided by the \texttt{hyperref} package and can be set with \path{\urlstyle}.
+          \begin{itemize}
+          \item
+            This is an example of an arbitrary second-level \texttt{itemize}.
+          \end{itemize}
+        \end{enumerate}
+      \end{block}
+    \end{column}
 
-\begin{block}{Overview}
-\begin{itemize}
-\item This is the template I created for my poster presentations.
-\item You can provide an optional \verb|\footimage|.
-\end{itemize}
-\end{block}
+    % second column
+    \begin{column}{\colwidth}
+      \begin{block}{Dimensions}
+        If you read the source for this poster you will see definitions of \path{\colsep} and \path{\colwidth}, where \path{\colwidth} is defined in terms of \path{\textwidth} and \path{\colsep}.
+        The \texttt{calc} package is used to perform the calculation needed for \path{\colwidth}.
+        The value of \path{\textwidth} used by \path{\colwidth} is a constant defined in the ColleviumV theme as 36 inches per the templates provided at \url{honors.utdallas.edu/cv/senior-thesis} as of 2018-04-17.
+        The default value of \path{\colwidth} is appropriate for a three-column layout.
+      \end{block}
+    \end{column}
 
-\begin{block}{Options}
-\begin{itemize}
-\item It's based on \texttt{beamerposter}, so you can change some options:
-  \begin{description}
-  \item[size] a0, a0b, a1, a2, a3, a4
-  \item[orientiation] landscape, portrait
-  \item[scale] a decimal number to scale the fonts
-  \end{description}
-\end{itemize}
-\end{block}
-
-\begin{block}{Colour Themes}
-\begin{itemize}
-\item I've included some colour themes, using the colour palettes from \url{http://colourlovers.com}
-\begin{itemize}
-\item ComingClean (teak and cream)
-\item Entrepreneur (current theme)
-\item Conspicious (a bit garish!)
-\end{itemize}
-\end{itemize}
-\end{block}
-
-\end{column}
-
-%%%% Second Column
-\begin{column}{.3\textwidth}
-
-\begin{block}{This is a sample}
-\begin{itemize}
-\item One, two, pick up my shoe
-\item Three, four, shut the door
-\item Five, six, pick up sticks
-\item Seven, eight, lay them straight
-\item Nine, ten, a big fat hen
-\item One, two, pick up my shoe
-\item Three, four, shut the door
-\item Five, six, pick up sticks
-\item Seven, eight, lay them straight
-\item Nine, ten, a big fat hen
-\end{itemize}
-\end{block}
-
-
-\begin{block}{This is another sample}
-\begin{itemize}
-\item Some maths material
-\begin{align}
-A &= U \times S \times V^T\\
-\sigma &= \frac{x\times y}{\sqrt[3]{\alpha + \beta}}
-\end{align}
-\end{itemize}
-\end{block}
-\end{column}
-
-%%%% This is the THIRD column
-\begin{column}{.33\textwidth}
-\begin{block}{Brighten it up!}
-This particular colour theme could do with some colourful images to brighten it up -- go wild with your charts!
-
-\begin{center}
-\includegraphics[width=.6\linewidth]{example-grid-100x100bp}
-\end{center}
-
-\end{block}
-\end{column}
-
-\end{columns}
-
-\begin{block}{This is a sample of a wiiiide column}
-\begin{itemize}
-\item One, two, pick up my shoe
-\item Three, four, shut the door
-\item Five, six, pick up sticks
-\item Seven, eight, lay them straight
-\item Nine, ten, a big fat hen
-\end{itemize}
-\end{block}
-
-
+    % third column
+    \begin{column}{\colwidth}
+      \begin{block}{Overview}
+        \begin{itemize}
+        \item
+          This is the template I created for my poster presentations.
+        \item
+          In this bullet I reference \textit{Scrum and XP from the Trenches}.~\cite{kniberg}
+        \item
+          In this bullet I reference a work by Kent Beck.~\cite{agile_principles}
+        \end{itemize}
+      \end{block}
+      \begin{block}{References}
+        \renewcommand*{\bibfont}{\normalfont\footnotesize}
+        \setbeamertemplate{bibliography item}[text]
+        \printbibliography{}
+      \end{block}
+    \end{column}
+  \end{columns}
 \end{frame}
+
 \end{document}
+
+%%% Local Variables:
+%%% mode: xelatex
+%%% TeX-master: t
+%%% End:
