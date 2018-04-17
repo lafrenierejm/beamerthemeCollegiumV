@@ -19,11 +19,41 @@
 \setlength{\topmargin}{-1in}
 
 \usefonttheme[onlymath]{serif}
-\setbeamertemplate{headline}{  
-  \begin{beamercolorbox}[wd=\textwidth]{headline}
-     \vskip2em\centering
-     \parbox{\linewidth}{\normalbaselines\centering\usebeamercolor{title in headline}\color{fg}{\bfseries\rmfamily\huge\inserttitle\par}}%
-     \vskip2em
+
+\setbeamertemplate{headline}{%
+  \begin{beamercolorbox}[ht=4in,wd=\textwidth]{headline}
+    \begin{minipage}[b][3.75in][b]{0.25\paperwidth}
+      \hspace{0.01\paperwidth}
+      \begin{minipage}{1.0\textwidth}
+        \Large
+        Honors College\\
+        Software Engineering
+      \end{minipage}
+      \vspace{0.25in}
+    \end{minipage}
+    \begin{minipage}[b][3.9in][c]{0.5\paperwidth}
+      \vspace{0.5in}
+      \begin{minipage}[][][c]{1.0\textwidth}
+        \centering
+        \bfseries
+        \rmfamily
+        \fontsize{2.75cm}{2.75cm}\selectfont{}
+        \inserttitle{}
+        % \fontsize{2.0cm}{2.0cm}\selectfont{}
+        % Subtitle\par{}
+      \end{minipage}
+      \vfill{}
+      \begin{minipage}[][][c]{1.0\textwidth}
+        \centering
+        \Large
+        \insertauthor
+      \end{minipage}
+      \vspace{0.25in}
+    \end{minipage}
+    \begin{minipage}[b][3.9in][c]{0.23\paperwidth}
+      \hfill{}
+      \includegraphics[width=6.83in]{img/utd-logo.pdf}
+    \end{minipage}
   \end{beamercolorbox}
   
   \begin{beamercolorbox}[wd=\paperwidth]{lower separation line head}
